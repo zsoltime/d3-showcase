@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Bar Chart with D3.js v4</h1>
+  <div class="content">
+    <h1 class="title">Bar Chart with D3.js v4</h1>
     <div id="chart"></div>
   </div>
 </template>
@@ -17,7 +17,7 @@ import {
   select,
   scaleLinear,
   scaleTime,
-  timeFormat,
+  timeFormat
 } from 'd3';
 
 const url = 'https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json';
@@ -227,3 +227,63 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+@import '~sassVars'
+
+.chart
+  position: relative
+  width: 100%
+
+  text
+    font-weight: 300
+
+  &__axis
+    path
+      fill: none
+      stroke: $color-text
+      shape-rendering: crispEdges
+
+  &__label
+    fill: $color-text
+
+  &__bar
+    fill: url(#gradient-green)
+    transition: opacity .1s ease-in-out
+
+    &:hover
+      opacity: .75
+
+.tick
+  line
+    stroke: $color-text
+
+  text
+    fill: $color-text
+
+.selector
+  cursor: pointer
+
+.tooltip
+  box-shadow: 0 .5rem 1.25rem -.5rem $color-text
+  color: #444
+  left: 0
+  min-width: 10em
+  opacity: 0
+  position: absolute
+  text-align: center
+  top: 0
+  transition: all 75ms ease-in-out
+
+  p
+    margin: 0
+    padding: .5em
+
+    &:first-child
+      background: $color-text
+      color: #ddd
+
+    &:last-child
+      background: rgba(white, .5)
+
+</style>

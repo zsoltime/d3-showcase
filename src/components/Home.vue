@@ -1,12 +1,12 @@
 <template>
-  <div class="home">
-    <h1>{{ msg }}</h1>
+  <div class="content">
+    <h1 class="title">{{ msg }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'home',
   data() {
     return {
       msg: 'D3.js Showcase',

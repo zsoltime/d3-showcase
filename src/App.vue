@@ -1,36 +1,20 @@
 <template>
   <div id="app">
-    <nav class="title-bar">
-      <ul class="menu">
-        <router-link class="menu__item" tag="li" to="/" exact>
-          <a class="menu__link">Home</a>
-        </router-link>
-        <router-link class="menu__item" tag="li" to="/bar-chart">
-          <a class="menu__link">Bar Chart</a>
-        </router-link>
-        <router-link class="menu__item" tag="li" to="/scatterplot">
-          <a class="menu__link">Scatterplot</a>
-        </router-link>
-        <router-link class="menu__item" tag="li" to="/heatmap">
-          <a class="menu__link">Heat Map</a>
-        </router-link>
-        <router-link class="menu__item" tag="li" to="/force-directed">
-          <a class="menu__link">Force Directed</a>
-        </router-link>
-        <router-link class="menu__item" tag="li" to="/map">
-          <a class="menu__link">Map</a>
-        </router-link>
-      </ul>
-    </nav>
-    <div class="content">
+    <TitleBar />
+    <transition name="fade" mode="out-in">
       <router-view></router-view>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
+import TitleBar from './components/TitleBar';
+
 export default {
   name: 'app',
+  components: {
+    TitleBar,
+  },
 };
 </script>
 
@@ -43,25 +27,12 @@ body
   margin: 0
   text-align: center
 
-.title-bar
-  background-color: #c44
+.tooltip, text
+  font-size: .625rem
 
-.menu
-  display: flex
-  justify-content: center
-  list-style: none
-  margin: 0
-  padding: 1rem
+.fade-enter-active, .fade-leave-active
+  transition: opacity .5s
 
-  &__item
-    margin-right: 1rem
-
-    &--active
-      .menu__link
-        color: white
-
-  &__link
-    color: rgba(white, .75)
-    text-decoration: none
-    transition: color .2s ease-in-out
+.fade-enter, .fade-leave-to
+  opacity: 0
 </style>

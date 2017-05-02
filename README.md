@@ -1,6 +1,6 @@
-# d3-showcase
+# D3.js Showcase
 
-> A Vue.js project
+> My Free Code Camp D3.js solutions
 
 ## Build Setup
 

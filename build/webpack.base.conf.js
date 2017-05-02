@@ -21,7 +21,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src')
+      '@': resolve('src'),
+      sassVars: resolve('src/styles/_variables.sass'),
+      flags: resolve('node_modules/flag-icon-css/sass/_flag-icon.scss'),
     }
   },
   module: {
